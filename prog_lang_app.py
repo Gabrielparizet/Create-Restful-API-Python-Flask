@@ -55,13 +55,12 @@ def programming_languages_route():
        return create_programming_language(request.get_json(force=True))
    
 # Build an UPDATE Endpoint / Put Route
-@app.route('/programming_languages/<programming_language_name>', methods=['GET', 'PUT'])
+@app.route('/programming_languages/<programming_language_name>', methods=['GET', 'PUT', 'DELETE'])
 def programming_language_route(programming_language_name):
    if request.method == 'GET':
       return get_programming_language(programming_language_name)
    elif request.method == "PUT":
       return update_programming_language(programming_language_name, request.get_json(force=True))
-   elif request.method == "DELETE": 
+   elif request.method == "DELETE": # Build DELETE Endpoint / Delete Route
       return delete_programming_language(programming_language_name)
 
-# Build DELETE Endpoint / Delete Route
